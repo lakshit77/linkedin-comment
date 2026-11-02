@@ -1,20 +1,24 @@
 {
   "manifest_version": 3,
   "name": "LinkedIn Comment Generator",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Generate professional comments for LinkedIn posts with customizable tones",
   "permissions": [
     "activeTab",
+    "scripting",
     "storage",
     "clipboardWrite"
   ],
   "host_permissions": [
-    "https://*.linkedin.com/*"
+    "https://*.linkedin.com/*",
+    "http://localhost:5678/*",
+    "http://127.0.0.1:5678/*"
   ],
   "content_scripts": [
     {
       "matches": ["https://*.linkedin.com/*"],
-      "js": ["content.js"]
+      "js": ["content.js"],
+      "run_at": "document_idle"
     }
   ],
   "background": {
@@ -33,4 +37,4 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   }
-} 
+}
